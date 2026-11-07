@@ -143,7 +143,9 @@ function Search({ session }: { session: Session }) {
             <button className="flex w-full gap-3 text-left rounded-md p-2 hover:bg-accent" onClick={() => setPlaying(v.id)}>
               <img src={v.thumb} alt="" className="w-32 rounded" />
               <span>
-                <span className="block font-medium" dangerouslySetInnerHTML={{ __html: v.title }} />
+                <span className="block font-medium">
+                  {v.title.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&")}
+                </span>
                 <span className="text-sm text-muted-foreground">{v.channel}</span>
               </span>
             </button>
