@@ -11,7 +11,7 @@ export const searchYoutube = createServerFn({ method: "POST" })
     return { q };
   })
   .handler(async ({ data }) => {
-    const key = process.env.GOOGLE_API_KEY;
+    const key = process.env["GOOGLE_API_KEY"];
     if (!key) throw new Error("Chave do YouTube não configurada");
     const url = new URL("https://www.googleapis.com/youtube/v3/search");
     url.search = new URLSearchParams({

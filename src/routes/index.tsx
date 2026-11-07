@@ -103,7 +103,7 @@ function Search({ session }: { session: Session }) {
   const [playing, setPlaying] = useState<string | null>(null);
   const [err, setErr] = useState("");
   const [busy, setBusy] = useState(false);
-  const name = (session.user.user_metadata?.username as string) || session.user.email;
+  const name = (session.user.user_metadata?.["username"] as string) || session.user.email;
 
   async function run(e: React.FormEvent) {
     e.preventDefault();
